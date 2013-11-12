@@ -1,0 +1,21 @@
+<snippet>
+  <content><![CDATA[
+var uniforms = {
+  
+};
+var attributes = {};
+
+var material = new THREE.ShaderMaterial({
+  uniforms: uniforms,
+  attributes: attributes,
+  vertexShader: document.getElementById("vertex-shader").textContent,
+  fragmentShader: document.getElementById("fragment-shader").textContent,
+  side: THREE.DoubleSide,
+  // wireframe: true
+});
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>smaterial</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

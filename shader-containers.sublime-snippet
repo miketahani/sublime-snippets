@@ -1,0 +1,32 @@
+<snippet>
+  <content><![CDATA[
+<script type="x-shader/x-vertex" id="vertex-shader">
+
+  // uniform sampler2D tex;
+  varying vec2 vUv;
+
+  void main() {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    // gl_Position = vec4(position, 1.);
+  }
+
+</script>
+<script type="x-shader/x-fragment" id="fragment-shader">
+
+  // uniform sampler2D tex;
+  varying vec2 vUv;
+
+  void main() {
+    // vec4 texCoord = texture2D(tex, vUv);
+    
+    gl_FragColor = vec4(0., 0., 0., 1.);
+  }
+
+</script>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>shaders</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>
