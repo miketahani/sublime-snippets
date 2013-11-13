@@ -1,0 +1,94 @@
+<snippet>
+  <content><![CDATA[
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+
+      body,
+      svg {
+        margin: 0;
+        padding: 0;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="main"></div>
+
+    <script src="../js/d3.v3.js"></script>
+    <script src="../js/three.r61.js"></script>
+    <script type="x-shader/x-vertex" id="vertex-shader">
+    
+      // uniform sampler2D tex;
+      varying vec2 vUv;
+    
+      void main() {
+        vUv = uv;
+        // gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        gl_Position = vec4(position, 1.);
+      }
+    
+    </script>
+    <script type="x-shader/x-fragment" id="fragment-shader">
+    
+      // uniform sampler2D tex;
+      varying vec2 vUv;
+    
+      void main() {
+        // vec4 texCoord = texture2D(tex, vUv);
+
+        
+
+        gl_FragColor = vec4(0., 0., 0., 1.);
+      }
+    
+    </script>
+
+    <script>
+
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+      
+      var renderer = new THREE.WebGLRenderer({antialias: true});
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+      
+      var geometry = new THREE.PlaneGeometry(2, 2, 1, 1);
+
+      var uniforms = {};
+      var attributes = {};
+      
+      var material = new THREE.ShaderMaterial({
+        uniforms: uniforms,
+        attributes: attributes,
+        vertexShader: document.getElementById("vertex-shader").textContent,
+        fragmentShader: document.getElementById("fragment-shader").textContent,
+        side: THREE.DoubleSide,
+        // wireframe: true
+      });
+
+      var mesh = new THREE.Mesh(geometry, material);
+      scene.add(mesh);
+      
+      var render = function () {
+        requestAnimationFrame(render);
+      
+
+        renderer.render(scene, camera);
+      };
+      
+      render();
+
+    </script>
+
+  </body>
+</html>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>tshaderboilerplate</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>
