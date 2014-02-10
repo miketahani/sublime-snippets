@@ -1,0 +1,36 @@
+<snippet>
+  <content><![CDATA[
+var po = org.polymaps;
+
+var map = po.map()
+    .container(document.getElementById('map').appendChild(po.svg('svg')))
+    .center({lat: 37.7657, lon: -122.4302})
+    // .zoomRange([1, 20])
+    .zoom(13)
+    .add(po.interact())
+    .add(po.hash());
+
+map.add(po.image()
+    .url(po.url('http://{S}tile.cloudmade.com/1a1b06b230af4efdbb989ea99e9841af/20760/256/{Z}/{X}/{Y}.png')
+    .hosts(['a.', 'b.', 'c.', ''])));
+
+map.add(po.geoJson()
+    .url('http://polymaps.appspot.com/state/{Z}/{X}/{Y}.json')
+    .on('load', load))
+
+map.add(po.compass()
+    .pan('none'));
+
+
+function load(e) {
+  for (var i = 0; i < e.features.length; i++) {
+    var feature = e.features[i];
+    feature.element.setAttribute('display', 'none');
+  }
+}
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>polymaps</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

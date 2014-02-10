@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-<script type="x-shader/x-vertex" id="vertex-shader">
+<script type='x-shader/x-vertex' id='vertex-shader'>
 
   // uniform sampler2D tex;
   varying vec2 vUv;
@@ -12,7 +12,7 @@
   }
 
 </script>
-<script type="x-shader/x-fragment" id="fragment-shader">
+<script type='x-shader/x-fragment' id='fragment-shader'>
 
   // uniform sampler2D tex;
   varying vec2 vUv;

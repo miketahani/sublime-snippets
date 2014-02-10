@@ -8,8 +8,8 @@ var attributes = {};
 var material = new THREE.ShaderMaterial({
   uniforms: uniforms,
   attributes: attributes,
-  vertexShader: document.getElementById("vertex-shader").textContent,
-  fragmentShader: document.getElementById("fragment-shader").textContent,
+  vertexShader: document.getElementById('vertex-shader').textContent,
+  fragmentShader: document.getElementById('fragment-shader').textContent,
   side: THREE.DoubleSide,
   // wireframe: true
 });
